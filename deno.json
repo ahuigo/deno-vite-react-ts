@@ -1,0 +1,37 @@
+{
+  "tasks": {
+    "dev": "deno run -A --node-modules-dir npm:vite",
+    "build": "deno run -A --node-modules-dir npm:vite build",
+    "preview": "deno run -A --node-modules-dir npm:vite preview",
+    "serve": "deno run --allow-net --allow-read jsr:@std/http@1/file-server dist/"
+  },
+  "compilerOptions": {
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "jsxImportSourceTypes": "@types/react"
+  },
+  "imports": {
+    "@ant-design/icons": "npm:@ant-design/icons@^5.3.6",
+    "@ant-design/pro-components": "npm:@ant-design/pro-components@^2.6.49",
+    "@deno/vite-plugin": "npm:@deno/vite-plugin@^1.0.0",
+    "@types/react": "npm:@types/react@~18.2.0",
+    "@types/react-dom": "npm:@types/react-dom@~18.2.0",
+    "@vitejs/plugin-react": "npm:@vitejs/plugin-react@^4.3.4",
+    "antd": "npm:antd@^5.17.3",
+    "autoprefixer": "npm:autoprefixer@^10.4.20",
+    "postcss": "npm:postcss@^8.4.49",
+    "react": "npm:react@~18.2.0",
+    "react-dom": "npm:react-dom@~18.2.0",
+    "react-router-dom": "npm:react-router-dom@^6.22.3",
+    "tailwindcss": "npm:tailwindcss@^3.4.15",
+    "vite": "npm:vite@^5.4.6"
+  },
+  "lint": {
+    "rules": {
+      "tags": ["recommended"],
+      "include": ["ban-untagged-todo", "no-unused-vars"],
+      "exclude": ["no-explicit-any"]
+    }
+  }
+}

@@ -1,0 +1,25 @@
+.gmodalMask {
+    top: 0;
+    left: 0;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 999;
+
+    .gmodal {
+        position: relative;
+        background-color: white;
+        padding: 1em;
+
+        .close {
+            position: absolute;
+            right: 0;
+            padding: 1em;
+        }
+    }
+
+}

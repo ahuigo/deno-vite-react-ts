@@ -1,0 +1,41 @@
+import type { UploadFile } from 'antd/lib/upload/interface';
+
+    <Upload
+        listType="text"
+        beforeUpload={beforeUpload}
+        onRemove={onRemove}
+        multiple={true}
+        onChange={(info) => {
+            setSelectedFile(info.fileList);
+        }}
+        showUploadList={true}
+        fileList={selectedFile as unknown as UploadFile<unknown>[] | undefined}
+        itemRender={(originNode, file) => (
+            return <div>{file?.progress}</file>
+        )}
+    >
+
+
+
+ProForm:
+
+    <ProFormUploadButton
+      // beforeUpload={beforeUpload}
+      // onRemove={onRemove}
+      // multiple={true}
+      onChange={(info) => {
+        console.log(info.fileList);
+        onChange("a.txt");
+      }}
+      fieldProps={{
+        showUploadList: true
+      }}
+      // fileList={selectedFile as unknown as UploadFile<unknown>[] | undefined}
+
+      title={title}
+      name={name}
+      label={label}
+      max={2}
+    // action="/upload.do"
+    // extra="lo"
+    />);

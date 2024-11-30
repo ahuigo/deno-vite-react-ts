@@ -1,0 +1,59 @@
+import { UploadOutlined } from "@ant-design/icons";
+import { ProForm } from "@ant-design/pro-components";
+import { Button, Col, Input, Upload } from "antd";
+
+interface Props {
+  label: string;
+  name: string;
+  title: string;
+  className?: string;
+  onChange?: (v: any) => void;
+  initialValue?: string;
+  value?: string;
+  required?: boolean;
+}
+export function UploadFile(props: Props) {
+  const { name, title, onChange, value, initialValue, required } = props;
+  console.log(props);
+  return <div>
+    <Upload
+      className="mr-2"
+      beforeUpload={async (file) => {
+        console.log(file);
+        const { res, download:fileurl } = await uploadFileToDW(
+          file.name,
+          file,
+        );
+        onChange?.(fileurl);
+        return false;
+      }}
+      // onRemove={onRemove}
+      multiple={false}
+      onChange={async (info) => {
+        if (info.file.status !== "done") {
+          return;
+        }
+        console.log(info.fileList);
+      }}
+      showUploadList={false}
+      // fileList={selectedFile as unknown as UploadFile<unknown>[] | undefined}
+      name={name}
+    // action={}
+    >
+      <Button icon={<UploadOutlined />}>上传</Button>
+    </Upload>
+    <span>{value}</span>
+  </div>;
+}
+
+export function ProFormUploadFile(props: Props) {
+  const className = (props.className || "") + " ant-col-xs-24 ";
+  return (
+    <Col {...props} className={className}>
+      <ProForm.Item {...props} >
+        <UploadFile {...props} />
+      </ProForm.Item>
+    </Col>
+  );
+}
+
